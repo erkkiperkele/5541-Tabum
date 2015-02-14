@@ -1,0 +1,6 @@
+ID	Description	Amount	Date	Paid	Due Date
+1	Restaurant	180.0	2015-02-14	1	2015-02-28
+2	Book Store	400.0	2015-01-21	1	2015-01-25
+3	Trip to Milan	3200.0	2014-12-20	0	2015-01-25
+4	Parking Ticket	52.0	2015-01-20	1	2015-01-25
+5	Laptop	1500.0	2015-02-13	1	2015-02-13

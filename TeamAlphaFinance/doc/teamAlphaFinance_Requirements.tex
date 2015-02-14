@@ -1,0 +1,485 @@
+\documentclass[12pt]{article}
+\pagestyle{empty}
+\setcounter{secnumdepth}{2}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=black,
+    linkcolor=blue,
+    urlcolor=blue
+}
+
+\topmargin=0cm
+\oddsidemargin=0cm
+\textheight=22.0cm
+\textwidth=16cm
+\parindent=0cm
+\parskip=0.15cm
+\topskip=0truecm
+\raggedbottom
+\abovedisplayskip=3mm
+\belowdisplayskip=3mm
+\abovedisplayshortskip=0mm
+\belowdisplayshortskip=2mm
+\normalbaselineskip=12pt
+\normalbaselines
+
+\begin{document}
+
+\vspace*{0.5in}
+\centerline{\bf\Large Requirements Document}
+
+\vspace*{0.5in}
+\centerline{\bf\Large Team Alpha Finance}
+
+\vspace*{0.5in}
+\centerline{\bf\Large 17 February 2015}
+
+\vspace*{1.5in}
+\begin{table}[htbp]
+\caption{Team}
+\begin{center}
+\begin{tabular}{|r | c|}
+\hline
+Name & ID Number \\
+\hline\hline
+David Abran-Cote & 27142587 \\
+Andre-Philippe Cianflone & 25239214 \\
+Patrick Cristofaro & 25410282 \\
+Khaled El-Badawi & 27182643 \\
+Aymeric Grail & 26810020 \\
+Khodayar Jeirroodi & 27580525\\
+Richard Kallos & 26939325\\
+Luis M. Saravia Patron & 26800505\\
+Ahmed Shaheen & 29736190\\
+Victoria Zaytseva & 27367821\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\clearpage
+
+\tableofcontents
+
+\clearpage
+
+\section{Purpose of the document} \label{purpose}
+  The purpose of this document is to define the “user requirement” of the Personal Budget Manager Application, which is the project for COMP 5541.  It will provide information on the 
+  subjects such as main concepts, user groups and functional and nonfunctional requirements. The intended audiences of this document are described in Table 2 below.
+
+\begin{table}[htbp]
+\caption{Audience}
+\begin{center}
+\begin{tabular}{|l | p{10 cm}|}
+\hline
+Audience & Purpose \\
+\hline\hline
+Users and Customers & To be familiar with the application and its features, also to give feedback about the requirements and confirm them\\
+\hline
+Application Developers & To fully understand what functions and properties the system must                    
+contain from the customer point of view\\
+\hline
+Application Testers & To test the system against the requirements\\
+\hline
+Documentation Team&To document the different steps of the project and make the required documents (this document, user manuals, etc.)\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+ 
+\section{Business goals} \label{buisGoals}
+The Personal Budget Manager Application provides users with an execution environment that can be used to 
+control personal expenses by entering the expenses and allowing the user to review or edit the entered data. 
+It distinguishes between two kind of expenses: Purchase expenses and Bill expenses. There are also some planned future 
+extensions of the Personal Budget Manager, such as addition of new expense types, support for multiple user interfaces (e.g., Web UI, Mobile UI) and multiple presentations of the expense list (e.g., using trees or lists).
+
+\section{Main domain concepts} \label{domCon}
+\subsubsection{Overview}
+Keeping track of all the expenses a person has can be a complex activity. Software tools like budget managers can help organise personal finances and make budgeting much easier. \\
+Consider a person purchasing an item at a store with their credit card. They are given a purchase receipt and the transaction is recorded on their bank statement. If an individual wants to keep track of their spending, they must either collect all their receipts or wait for the bank to send a monthly statement. \\
+While it is true that modern banking can be done online, if the person has a number of different cards from different banks, a lot of time will be spent verifying each account. Therefore, budget management software provides a centralised location where all this information can be securely stored.
+\subsubsection{Definitions}
+The terms outlined in this section are defined with respect to how they are applied in this document.\\
+\\
+\textbf{Bill}: A list of goods or services rendered or to be rendered, including the price and payment due date.\\
+\textbf{Budget Manager}: A software-based application that assists in recording, tracking and analyzing a user's spending.\\
+\textbf{Expense}: Goods or services which must be paid for.\\
+\textbf{Purchase}: A point-of-sale transaction for goods or services.
+\section{System overview} \label{sysOvr}
+The system shall assist users in tracking their general spending by allowing the entry of various expenses into an organised interface.
+\subsubsection{Essential Features}
+Detailed requirements will be elaborated upon in later sections, however, the essential features of the application are the following:
+\begin{itemize}
+\item The user shall be able to enter expenses (Bills and Purchases) into the software
+\item Each expense shall have common attributes such as date and amount, as well as attributes specific to either Bills or Purchases.
+\item All the information will be stored in a database
+\item The information will be presented in multiple useful ways
+\item The information shall be easy to modify or remove
+\end{itemize}
+\emph{pc  (add a diagram to do)}
+\section{User groups} \label{userGrps}
+\emph{todo}
+\section{Functional requirements} \label{funcReq}
+Functional requirements are the services and actions supported by the application. This section lists these requirements. Since the project will be delivered in three iteration phases, the iteration column indicates which phase each requirement will belong to.
+\begin{table}[htbp]
+\caption{Functional Requirements}
+\begin{center}
+\begin{tabular}{|p{6mm}|p{16mm}|p{48mm}|p{40mm}|p{14mm}|p{10mm}|}
+\hline
+ID & Feature & Requirement & Rationale & Iteration & Use Case\\
+\hline
+F1 & Data Entry & The user shall be able to enter expenses into the application & Basic functionality & 1 & 2\\
+\hline
+F2 & Data Entry & Expense types shall be either Bills or Purchases & Basic functionality & 1 & 2\\
+\hline
+F3 & Data Viewing & The user shall be able to view all expenses that are in the database & Basic functionality & 1 & 5\\
+\hline
+F4 & Expense status & The user shall be able to mark a purchase as either paid or due date, or mark a bill as paid or not paid & Users must be able to track their transaction status & 1 &  2, 3\\
+\hline
+F5 & Expense deletion & The user shall be able to delete (remove) an expense & Users must have the ability to correct errors & 1 & 4\\
+\hline
+F6 & Login & The user shall be required to log in using a password. When finished the user shall be logged out. & Data must be secured & 1 & 1, 6\\
+\hline
+F7 & Composite & Expense types shall be Bills, Purchases or Composite, meaning they are composed of sub-expenses which themselves can have sub-expenses. & Some transactions are composed of multiple unique expenses & 2 & TBD\\
+\hline
+F8 & Composite Entry & The user shall be able to enter a composite expense, consisting of sub-expenses. & Composite functionality & 2 & TBD\\
+\hline
+F9 & Composite View & The user shall be able to view composite expenses in a hierarchy & Composite functionality & 2 & TBD\\
+\hline
+F10 & Composite Delete & The user shall be able to delete composite expenses, which should delete the composite's children in consequence & It must be possible to correct errors & 2 & TBD\\
+\hline
+F11 & Hiding Paid Expenses & The user shall be able to hide or unhide all paid expenses & Facilitate viewing of outstanding payments & 2 & TBD\\
+\hline
+F12 & Database & The application shall connect to a database to store/retrieve information & Utilize formal data storage & 3 & TBD\\
+\hline
+F13 & Database Load & Data shall be loaded from the database upon launch of the application & Utilize formal data storage & 3 & TBD\\
+\hline
+F14 & Database Save & The user shall have the ability to save all data to the database & Utilize formal data storage & 3 & TBD\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\emph{ TODO: ADD ITERATION 2 AND 3 }
+
+\section{Non-functional requirements} \label{nfuncReq}
+
+\section{User requirements  (Use Cases)} \label{userReq}
+
+\subsubsection{Overview} \label{reqOverview}
+A Use Case is a piece of functionality in the system. Those pieces will return a value or perform a service to a user, in this application we have two actors : \textit{User and System}.
+In table 3 the use cases of this Application are mentioned, also Figure 1, depicts a diagram for use cases.
+
+
+\begin{figure}[htbp]
+%insert diagram here
+\caption{Use Case Diagram}
+\label{fig:use-case-diagram}
+\end{figure}
+
+
+\begin{table}[htbp]
+\caption{Use case table}
+\begin{center}
+\begin{tabular}{|l | l|l|}
+\hline
+Use case ID&Name	&Primary Actor\\
+\hline\hline
+1	&	Login&	User\\
+\hline
+2	&	Data Entry&	User	\\
+\hline
+3	&	Edit		&User\\
+\hline
+4	&	Delete		&User\\
+\hline
+5	&	View		&User\\
+\hline
+6 	&	Logout	&	User\\
+
+\hline
+
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsubsection  {Use Case 1} \label{uc:1}		% use case 1 
+
+\noindent
+{\bf Name}\\
+Login 
+
+\noindent
+{\bf Summary}\\
+User must login into the software in order to enter or view the data.
+The characters in the password field are masked.
+
+\noindent
+{\bf Actors}\\
+User
+
+\noindent
+{\bf Precondition}\\
+User name and password must be predefined in the system
+
+\noindent
+{\bf Main Scenario}\\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item User runs the application
+\item User enters username (ID) and the related password and press the \textit{login}  button 
+\item If the User enters the valid username and password she/he will have access to the application main dashboard
+\end{enumerate}
+
+\noindent
+{\bf Exceptions}\\
+If any of the username or password fields be empty or not be valid after clicking the “login” button an error message should warn the user to enter or correct the data. The system will remain in the login form state.
+
+\noindent
+{\bf Postcondition}\\
+after entering the correct username and password the application main interface will be shown.
+
+\noindent
+{\bf Priority}\\
+Must
+
+\noindent
+{\bf Traces to Test Cases}\\
+Add when test cases done.
+
+
+\subsubsection{Use Case 2} \label{uc:1}		% use case 2 
+
+\noindent
+{\bf Name}\\
+DataEntry 
+
+\noindent
+{\bf Summary}\\
+User fills required field to enter a new expense into the software
+
+\noindent
+{\bf Actors}\\
+User
+
+\noindent
+{\bf Precondition}\\
+login
+
+\noindent
+{\bf Main Scenario}\\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item User selects among the two types of expenses (bills or purchases) for a new entry
+\item User enters (selects?) the required information in the fields: “description”, “amount”,  “date” and then “status” and “repetition interval” based on the type of the expense determined in the 1st step 
+\item User adding the new expense entry by clicking on a “enter” button
+\end{enumerate}
+
+\noindent
+{\bf Exceptions}\\
+If any of the mentioned filed be empty or not be in a proper format after clicking the “enter” button an error message should warn the user to complete or correct the data.
+
+\noindent
+{\bf Postcondition}\\
+ After entering the data the new record should be appear in the table part of the UI
+
+\noindent
+{\bf Priority}\\
+-
+
+\noindent
+{\bf Traces to Test Cases}\\
+Add when test cases done.
+
+
+\subsubsection{Use Case 3} \label{uc:1}		% use case 3 
+
+\noindent
+{\bf Name}\\
+Edit
+
+\noindent
+{\bf Summary}\\
+User finds an entry and changes the filed paid/unpaid
+
+\noindent
+{\bf Actors}\\
+User
+
+\noindent
+{\bf Precondition}\\
+login
+
+\noindent
+{\bf Main Scenario}\\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item User searches (scrolls?)  among the entered expenses
+\item User finds the desired entry and clicks on it
+\item That entry’s data appears in the data entry area of the UI
+\item User changes the status Paid/Unpaid then submits
+
+\end{enumerate}
+
+\noindent
+{\bf Exceptions}\\
+- 
+
+\noindent
+{\bf Postcondition}\\
+after submitting the data the payment status of the record must be changed to new status in the table part of the UI
+
+\noindent
+{\bf Priority}\\
+-
+
+\noindent
+{\bf Traces to Test Cases}\\
+Add when test cases done.
+
+\subsubsection{Use Case 4} \label{uc:1}		% use case 4 
+
+\noindent
+{\bf Name}\\
+view
+
+\noindent
+{\bf Summary}\\
+User can view/ scroll or search among the records
+
+\noindent
+{\bf Actors}\\
+User
+
+\noindent
+{\bf Precondition}\\
+login
+
+\noindent
+{\bf Main Scenario}\\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item User searches (scrolls?)  among the entered expensess
+\item User searches for a desired record  ??
+
+\end{enumerate}
+
+\noindent
+{\bf Exceptions}\\
+If there has not been any data entry the user will see the empty table.
+
+\noindent
+{\bf Postcondition}\\
+-
+
+\noindent
+{\bf Priority}\\
+-
+
+\noindent
+{\bf Traces to Test Cases}\\
+Add when test cases done.
+
+
+\subsubsection{Use Case 5} \label{uc:1}		% use case 5 
+
+\noindent
+{\bf Name}\\
+Delete
+
+\noindent
+{\bf Summary}\\
+User finds an entry and deletes it
+
+\noindent
+{\bf Actors}\\
+User
+
+\noindent
+{\bf Precondition}\\
+login
+
+\noindent
+{\bf Main Scenario}\\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item User searches (scrolls?)  among the entered expenses
+\item User finds the desired entry and clicks on the delete icon beside it (or click on it and in the entry menu click on delete button?)
+\item That entry’s data doesn’t appears in the data entry area of the UI anymore
+
+
+\end{enumerate}
+
+\noindent
+{\bf Exceptions}\\
+If there has not been any data entry the user will see the empty table.
+
+\noindent
+{\bf Postcondition}\\
+After deleting a record, its content must no longer exist in the table
+
+\noindent
+{\bf Priority}\\
+-
+
+\noindent
+{\bf Traces to Test Cases}\\
+Add when test cases done.
+ 
+
+\subsubsection{Use Case 6} \label{uc:1}		% use case 6 
+
+\noindent
+{\bf Name}\\
+Logout
+
+\noindent
+{\bf Summary}\\
+User logs out of the application
+
+\noindent
+{\bf Actors}\\
+User
+
+\noindent
+{\bf Precondition}\\
+login
+
+\noindent
+{\bf Main Scenario}\\
+\vspace*{-0.2in}
+\begin{enumerate}
+\item	User clicks on the button \textit{logout }
+
+
+\end{enumerate}
+
+\noindent
+{\bf Exceptions}\\
+-
+
+\noindent
+{\bf Postcondition}\\
+After logging out the user can’t do any of the use cases 2-5. User has to login in order to use the application.
+
+\noindent
+{\bf Priority}\\
+-
+
+\noindent
+{\bf Traces to Test Cases}\\
+Add when test cases done.
+
+
+\section{Constraints}
+
+\section{Solution ideas}
+
+\section{Acronyms and abbreviations}
+
+\section{References}
+
+\end{document}
